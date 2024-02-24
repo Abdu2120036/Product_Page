@@ -261,7 +261,7 @@ main {
 .preview img {
     width: 90px;
     border-radius: 10px; 
-    cursor: 10px;
+    cursor: pointer;
 }
 
 .preview img:hover {
@@ -337,6 +337,148 @@ main {
     background-color: var(--LightGrayishBlue);
     display: flex;
     align-items: center;
+    padding: 1rem;
+    width: 35%;
+    border-radius: 7px;
+    justify-content: space-between;
 }
 
-/* There is a bug with the UX. Fix it befoe continueing */
+.amount-btn button {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.amount {
+    font-weight: 700;
+}
+
+.add_btn {
+    cursor: pointer;
+    width: 65%;
+    margin-left: 1rem;
+    background-color: var(--Orange);
+    color: var(--White);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    font-family: inherit;
+    border: none;
+    border-radius: 7px;
+    padding: 1rem;
+}
+
+.add_btn:hover {
+    opacity: 70%;
+}
+
+.add_btn img {
+    filter: brightness(5);
+}
+
+/* Lightbox */
+
+.lightbox {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.lightbox-contaner {
+    position: relative;
+}
+
+.close-lightbox {
+    position: absolute;
+    top: -40px;
+    right: 10px;
+    color: var(--Orange);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+} 
+
+.close-lightbox:hover img {
+    filter: sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(1);
+}
+
+.close-lightbox img {
+    width: 20px;
+    height: 20px;
+}
+
+.lightbox .main-thumbnail {
+    width: 400px;
+}
+
+@media (max-width: 700px) {
+    .hidden {
+        display: flex;
+    }
+
+    .invisable-mob {
+        display: none;
+    }
+
+    body {
+        position: relative;
+    }
+
+    .nav_container {
+        padding-inline: 1rem;
+    }
+
+    .nav_left-sec {
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .menu {
+        cursor: pointer;
+    }
+
+    .close-btn {
+        cursor: pointer;
+    }
+
+    .overlay {
+        position: absolute;
+        z-index: 99;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: var(--Black);
+        opacity: 75%;
+        display: none;
+    }
+
+    .nav_links {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        width: 60%;
+        z-index: 99;
+        gap: 2;
+        padding: 2rem;
+        align-items: flex-start;
+        margin: 0;
+        display: none;
+        flex-direction: column;
+        background-color: var(--White);
+    }
+}
