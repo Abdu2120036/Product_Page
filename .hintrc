@@ -10,6 +10,12 @@
           "height: fit-content"
         ]
       }
+    ],
+    "axe/structure": [
+      "default",
+      {
+        "list": "off"
+      }
     ]
   }
 }
