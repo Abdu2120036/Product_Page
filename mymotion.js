@@ -77,6 +77,33 @@ function openLightBox() {
 function addItem() {
     if (amountValue > 0) {
         const total = 125.00 * amountValue;
-        
+        wrp.classList.remove("empty");
+        wrp.innerHTML = `
+        <div class="product">
+            <div>
+                <img class="product-img" src="./images/image-product-1-thumbnail.jpg">
+                <div class="product-info">
+                    <p class="product-title">Fall Limited Edition Sneakers</p>
+                    <p><span>$125.00</span> <span class="number">${amountValue}</span> <b class="total">$${total}</b></p>                </div>
+                </div>
+                <button class="delete-btn" onclick="deleteItem()"><img src="./images/icon-delete.svg"></button>
+            </div>
+            <button class="checkout-btn">Checkout</button>
+        </div>
+        `;
+        indicator.style.display = "block";
+        indicator.innerText = amountValue;
     }
 }
+
+function deleteItem() {
+    wrp.classList.add("empty");
+    wrp.innerHTML = `<p>Your cart is empty</p>`;
+    indicator.style.display = "none";
+}
+
+images.forEach((image) => {
+    image.addEventListener("click", () => {
+        const lastImg = document.querySelectorAll(".selected");
+    })
+})
