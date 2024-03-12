@@ -5,7 +5,7 @@ const menu = document.querySelector(".nav_links");
 const overlay = document.querySelector(".overlay");
 
 const mainThumbnail = document.querySelector(" main-thumbnail");
-const mainThumbnailLightbox = document.querySelector("..lightbox-container .main-thumbnail");
+const mainThumbnailLightbox = document.querySelector(".lightbox-container .main-thumbnail");
 
 const images = document.querySelectorAll(".preview img");
 
@@ -21,7 +21,7 @@ const thumbMob = document.querySelector('.thumb-mob');
 const cartBtn = document.querySelector('.cart-wrp');
 const cart = document.querySelector('.cart-wrp');
 
-const closeLightBtn = document.querySelector('.close-lightbox');
+const closeLightboxBtn = document.querySelector('.close-lightbox');
 const lightbox = document.querySelector(".lightbox");
 const addBtn = document.querySelector('.add_btn');
 const indicator = document.querySelector(".indicator");
@@ -105,5 +105,39 @@ function deleteItem() {
 images.forEach((image) => {
     image.addEventListener("click", () => {
         const lastImg = document.querySelectorAll(".selected");
+        if (lastImg) {
+            lastImg[0].classList.remove("selected");
+        }
+        image.classList.add("selected");
+        const selectedImg = document.querySelector(".selected");
+        switch (selectedImg.getAttribute("src")) {
+            case "images/image-product-1-thumbnail.jpg":
+                mainThumbnail.src = "images/image-product-1.jpg";
+                mainThumbnailLightbox.src = "images/image-product-1.jpg";
+                break;
+            case "images/image-product-2-thumbnail.jpg":
+                mainThumbnail.src = "images/image-product-2.jpg";
+                mainThumbnailLightbox.src = "images/image-product-2.jpg";
+                break;
+            case "images/image-product-3-thumbnail.jpg":
+                mainThumbnail.src = "images/image-product-3.jpg";
+                mainThumbnailLightbox.src = "images/image-product-3.jpg";
+                break;
+            case "images/image-product-4-thumbnail.jpg":
+                mainThumbnail.src = "images/image-product-4.jpg";
+                mainThumbnailLightbox.src = "images/image-product-4.jpg";
+                break;
+        }
     })
 })
+
+menuBtn.addEventListener("click", openMenu);
+closeBtn.addEventListener("click", closeMenu);
+plusBtn.addEventListener("click", handlePlus);
+minusBtn.addEventListener("click", handleMinus);
+nextBtn.addEventListener("click", nextImage);
+prevBtn.addEventListener("click", prevImage);
+cartBtn.addEventListener("click", toggleCart);
+closeLightboxBtn.addEventListener("click", closeLightBox);
+mainThumbnail.addEventListener("click", openLightBox);
+addBtn.addEventListener("click", addItem);
